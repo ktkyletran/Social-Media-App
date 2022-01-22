@@ -1,10 +1,16 @@
 import React from 'react'
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import Home from './containers/Home';
+import Login from './components/Login';
+import Signup from './components/Signup';
 
 function App() {
   return (
-    <div className="App">
-      <h1 className='text-3xl font-bold underline'>Jolie</h1>
-    </div>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/*" element={<Home />} />
+    </Routes>
   );
 }
 
