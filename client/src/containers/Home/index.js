@@ -4,7 +4,7 @@ import { AiFillCloseCircle } from 'react-icons/ai';
 import { Link, Route, Routes } from 'react-router-dom';
 import { Sidebar, UserProfile } from '../../components';
 import { client } from '../../client';
-import Pins from '../Pins';
+import Post from '../Post';
 import { userQuery } from '../../utils/data';
 
 const Home = () => {
@@ -54,7 +54,7 @@ const Home = () => {
       <div className="pb-2 flex-1 h-screen overflow-y-scroll" ref={scrollRef}>
         <Routes>
           <Route path='/user-profile/:userId' element={<UserProfile />} />
-          <Route path='/*' element={<Pins user={user && user} />} />
+          <Route path='/*' element={<Post user={user && user} />} />
         </Routes>
       </div>
     </div>
