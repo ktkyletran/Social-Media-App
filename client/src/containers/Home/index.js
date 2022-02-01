@@ -6,12 +6,13 @@ import { Sidebar, UserProfile } from '../../components';
 import { client } from '../../client';
 import Post from '../Post';
 import { userQuery } from '../../utils/data';
+import { fetchUser } from '../../utils/fetchUser';
 
 const Home = () => {
   const scrollRef = useRef(null);
   const [sidebar, setSidebar] = useState(false);
   const [user, setUser] = useState(null);
-  const userInfo = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
+  const userInfo = fetchUser();
   
   useEffect(() => {
     const query = userQuery(userInfo?.googleId);
