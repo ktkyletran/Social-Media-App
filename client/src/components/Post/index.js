@@ -48,7 +48,7 @@ const Post = ({ post: { postedBy, image, _id, destination, save } }) => {
       >
         <img className='rounded-lg w-full' alt="post" src={urlFor(image).width(250).url()} />
         {postHovered && (
-          <div style={{height: '100%'}} className="absolute top-0 w-full h-full flex flex-col justify-between p-1 pr-2 pt-2 pb-2 z-50">
+          <div style={{height: '100%'}} className="absolute top-0 w-full h-full flex flex-col justify-between p-1 pr-2 pt-2 pb-2 z-50 opacity-0 hover:opacity-100 duration-700">
             <div className="flex items-center justify-between">
               <div className="flex gap-2">
                 <a href={`${image?.asset?.url}?dl=`} download onClick={(e) => e.stopPropagation()} className='bg-white w-9 h-9 flex justify-center items-center text-dark text-xl opacity-75 rounded-full hover:opacity-100 hover:shadow-md outline-none duration-300'>
@@ -56,7 +56,7 @@ const Post = ({ post: { postedBy, image, _id, destination, save } }) => {
                 </a>
               </div>
               {alreadySaved ? (
-                <button type="button" className='bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none'>
+                <button type="button" className='bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none transition-300'>
                 {save?.length}  Saved
                 </button>
               ) : (
@@ -72,8 +72,8 @@ const Post = ({ post: { postedBy, image, _id, destination, save } }) => {
                 </button>
               )}
             </div>
-            <div className="flex justify-between items-center gap-2 w-full">
-              {destination && (
+            <div className="flex justify-end items-center gap-2 w-full">
+              {/* {destination && (
                 <a
                   href={destination}
                   target="_blank"
@@ -83,7 +83,7 @@ const Post = ({ post: { postedBy, image, _id, destination, save } }) => {
                   <BsFillArrowUpRightCircleFill />
                   {destination.length > 20 ? destination.slice(8, 26) : destination.slice(8)}
                 </a>
-              )}
+              )} */}
               {postedBy?._id === user.googleId && (
                 <button
                   type="button"
@@ -91,7 +91,7 @@ const Post = ({ post: { postedBy, image, _id, destination, save } }) => {
                     e.stopPropagation();
                     deletePost(_id)
                   }}
-                  className='bg-white opacity-70 hover:opacity-100 text-dark font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none'
+                  className='bg-white opacity-70 hover:opacity-100 text-dark font-bold px-4 py-2 text-base rounded-3xl hover:shadow-md outline-none duration-300'
                 >
                   <AiTwotoneDelete />
                 </button>
