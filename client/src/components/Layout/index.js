@@ -3,8 +3,12 @@ import Masonry from 'react-masonry-css'
 import Post from '../Post'
 
 const breakpoints = {
-  default: 4,
-  768: 2
+  default: 2,
+  768: 1,
+  1000: 2,
+  1400: 3,
+  2000: 4,
+
 }
 
 const Layout = ({ posts }) => {
