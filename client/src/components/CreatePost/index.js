@@ -142,7 +142,7 @@ const CreatePost = ({ user }) => {
             >
               <option value="other" className="bg-white">Select a category</option>
               {categories.map((item) => (
-                <option className='text-base border-0 outline-none capitalize bg-white text-black' value={item.name}>
+                <option className='text-base border-0 outline-none capitalize bg-white text-black' value={item.name} key={item.name}>
                   {item.name}
                 </option>
               ))}
