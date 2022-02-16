@@ -1,19 +1,11 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { RiHomeFill } from 'react-icons/ri';
-import { IoIosArrowForward } from 'react-icons/io';
+import { categories } from '../../utils/data'
 
 const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize'
 const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 border-black transition-all duration-200 ease-in-out capitalize'
 
-const categories = [
-  { name: 'Animals' },
-  { name: 'Wallpapers' },
-  { name: 'Cars' },
-  { name: 'Coding' },
-  { name: 'People' },
-  { name: 'Nature' },
-]
 
 const Sidebar = ({ user, closeToggle }) => {
   const handleSidebar = () => {
@@ -46,6 +38,7 @@ const Sidebar = ({ user, closeToggle }) => {
               key={category.name}
               className={({ isActive }) => isActive ? isActiveStyle : isNotActiveStyle}
             >
+            <img src={category.image} className="w-8 h-8 rounded-full shadow-sm" alt={category.name} />
               {category.name}
             </NavLink>
           ))}
